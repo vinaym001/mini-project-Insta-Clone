@@ -1,0 +1,29 @@
+.main-container {
+  width: 50vw;
+  justify-content: center;
+  padding: 15px;
+  margin-top: 80px;
+}
+
+.slick-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+.logo-image {
+  border: 1px solid transparent;
+  border-radius: 100%;
+  width: 60px;
+}
+
+.stories-name {
+  color: #262626;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  width: 60px;
+  text-align: center;
+}
