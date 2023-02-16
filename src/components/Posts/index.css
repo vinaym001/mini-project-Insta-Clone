@@ -1,13 +1,118 @@
 .post-li-container {
+  list-style-type: none;
+  margin-top: 20px;
 }
 
 .post-upper-container {
+  box-sizing: border-box;
+  width: 1040px;
+  height: 60px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px 4px 0px 0px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
 
-..post-lower-container {
+.post-username {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #262626;
+}
+
+.post-lower-container {
+  box-sizing: border-box;
+  width: 1040px;
+  height: 194px;
+  left: 0px;
+  top: 672px;
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 0px 0px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  line-height: 18px;
+  align-items: flex-start;
 }
 .post-user-profile-img {
+  width: 36px;
+  height: 36px;
+  left: 26px;
+  top: 16px;
+  border-radius: 100%;
+  margin-right: 10px;
+  border: 1px solid;
+  background-image: linear-gradient(to right, #e20337, #c60188, #7700c3);
+  padding: 2px;
 }
 
 .post-img {
+  width: 1040px;
+  height: 614px;
+  left: 0px;
+  top: 59px;
+  border-radius: 0px;
+  background-size: cover;
+}
+
+.social-buttons {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  color: #475569;
+}
+
+.social-button-container {
+  display: flex;
+  align-items: center;
+}
+.post-likes {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #262626;
+}
+.user-post-image {
+  background-size: cover;
+  width: 1040px;
+  height: 614px;
+  left: 0px;
+  top: 59px;
+}
+
+.time {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #989898;
+}
+.post-comments {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #262626;
+  list-style-type: none;
+}
+.span-element {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #262626;
+  list-style-type: none;
+}
+.comment-container {
+  padding-left: 0px;
+  margin: 0px;
 }

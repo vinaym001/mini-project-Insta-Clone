@@ -1,14 +1,18 @@
 import './index.css'
+import {Link} from 'react-router-dom'
 import {FaSearch} from 'react-icons/fa'
 
 const Header = () => (
   <div>
     <nav className="nav-container">
-      <img
-        src="https://res.cloudinary.com/dzf4nrbvt/image/upload/v1676516080/insta_icon_login_cvg0vu.svg"
-        alt="website logo"
-        className="header-website-logo"
-      />
+      <Link to="/">
+        <img
+          src="https://res.cloudinary.com/dzf4nrbvt/image/upload/v1676516080/insta_icon_login_cvg0vu.svg"
+          alt="website logo"
+          className="header-website-logo"
+        />
+      </Link>
+      <h1 className="logo-name">Insta Share</h1>
       <div className="nav-right-container">
         <div className="search-input-container">
           <input
@@ -18,8 +22,12 @@ const Header = () => (
           />
           <FaSearch className="search-icon" />
         </div>
-        <p className="home-link">Home</p>
-        <p className="profile-link">Profile</p>
+        <Link className="home-link" to="/">
+          <p>Home</p>
+        </Link>
+        <Link className="profile-link" to="/profile">
+          <p>Profile</p>
+        </Link>
         <button type="button" className="logout-button">
           Logout
         </button>

@@ -7,7 +7,7 @@ import Slicker from '../Slicker'
 import Posts from '../Posts'
 
 class Home extends Component {
-  state = {storyDataList: [], postsList: []}
+  state = {storyDataList: [], postsList: [], isLiked: false}
 
   componentDidMount() {
     this.getUserStoryData()
@@ -36,10 +36,8 @@ class Home extends Component {
         profilePic: eachItem.profile_pic,
         userId: eachItem.user_id,
         userName: eachItem.user_name,
-        createdAt: eachItem.created_at,
       }))
       this.setState({postsList: postData})
-      console.log(postData)
     }
   }
 
@@ -65,12 +63,23 @@ class Home extends Component {
     }
   }
 
+  onLikeClicked = () => {
+    this.setState(prevState => ({
+      isLiked: !prevState.isLiked,
+    }))
+  }
+
   renderPosts = () => {
-    const {postsList} = this.state
+    const {postsList, isLiked} = this.state
     return (
       <ul>
         {postsList.map(eachItem => (
-          <Posts key={eachItem.id} postDetailsItems={eachItem} />
+          <Posts
+            key={eachItem.postId}
+            postDetailsItems={eachItem}
+            onLikeClicked={this.onLikeClicked}
+            isLiked={isLiked}
+          />
         ))}
       </ul>
     )

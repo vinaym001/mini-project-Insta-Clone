@@ -7,6 +7,8 @@
   background: #ffffff;
   display: flex;
   align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #fafafa;
 }
 
 .header-website-logo {
@@ -14,7 +16,7 @@
   left: 13.89%;
   right: 82.01%;
   top: 39.95%;
-  bottom: 26.56%;
+  bottom: 28%;
 }
 
 .search-input-container {
@@ -42,7 +44,7 @@
   height: 18px;
   left: 1027px;
   top: 23px;
-
+text-decoration:none;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -61,6 +63,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+  text-decoration:none;
 }
 .logout-button {
   position: absolute;
@@ -81,4 +84,18 @@
 .nav-right-container {
   display: flex;
   align-items: center;
+}
+
+.logo-name {
+  color: #262626;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  position: absolute;
+  left: 18.82%;
+  right: 74.1%;
+  top: 31.25%;
+  bottom: 31.25%;
 }
