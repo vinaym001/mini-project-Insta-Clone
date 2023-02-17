@@ -1,0 +1,113 @@
+.bio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img-container {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  left: 260px;
+  top: 130px;
+  border-radius: 90px;
+}
+
+.profile-img {
+  width: 130px;
+}
+.profile-info {
+}
+.count-container {
+  display: flex;
+  align-items: center;
+}
+
+.pro-username {
+  position: absolute;
+  left: 30.83%;
+  right: 63.61%;
+  top: 4.86%;
+  bottom: 93.56%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 32px;
+  color: #262626;
+}
+.pro-post-count {
+  position: absolute;
+  width: 63px;
+  height: 24px;
+  left: 444px;
+  top: 155px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+.pro-follrs-count {
+  position: absolute;
+  width: 98px;
+  height: 24px;
+  left: 555px;
+  top: 155px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+.pro-follng-count {
+  position: absolute;
+  width: 97px;
+  height: 24px;
+  left: 701px;
+  top: 155px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+.pro-name {
+  position: absolute;
+  left: 30.83%;
+  right: 66.32%;
+  top: 9.58%;
+  bottom: 89.24%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+.pro-bio {
+  position: absolute;
+  width: 675px;
+  height: 48px;
+  left: 444px;
+  top: 227px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+
+.pro-story-container {
+  display: flex;
+  list-style-type: none;
+}
+.pro-story-img {
+  background: #f3eadb;
+  border-radius: 100%;
+  width: 100px;
+}

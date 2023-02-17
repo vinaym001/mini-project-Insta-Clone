@@ -2,9 +2,10 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import './index.css'
 import Header from '../Header'
+import MyProfile from '../MyProfile'
 
 class Profile extends Component {
-  state = {userProfile: {}}
+  state = {myProfileDetails: {}}
 
   componentDidMount() {
     this.getProfileData()
@@ -36,14 +37,20 @@ class Profile extends Component {
         postsCount: proData.posts_count,
         stories: proData.stories,
       }
-      this.setState({userProfile: profileData})
+      this.setState({myProfileDetails: profileData})
     }
+  }
+
+  renderUserProfile = () => {
+    const {myProfileDetails} = this.state
+    return <MyProfile myProfileDetails={myProfileDetails} />
   }
 
   render() {
     return (
       <div className="profile-bg-container">
         <Header />
+        {this.renderUserProfile()}
       </div>
     )
   }

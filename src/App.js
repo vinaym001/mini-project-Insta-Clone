@@ -6,9 +6,9 @@ import Profile from './components/Profile'
 
 const App = () => (
   <div>
-    <Route path="/login" component={Login} />
-    <Route path="/" component={Home} />
-    <Route path="/profile" component={Profile} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/" component={Home} />
+    <Route exact path="/profile" component={Profile} />
   </div>
 )
 
