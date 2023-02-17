@@ -1,13 +1,29 @@
 import {Component} from 'react'
 import './index.css'
+
+import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 
 import Header from '../Header'
 import Slicker from '../Slicker'
 import Posts from '../Posts'
+import SearchContext from '../../context/SearchContext'
+
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  progress: 'IN_PROGRESS',
+  success: 'SUCCESS',
+  fail: 'FAILURE',
+}
 
 class Home extends Component {
-  state = {storyDataList: [], postsList: [], isLiked: false}
+  state = {
+    storyDataList: [],
+    postsList: [],
+    isLiked: false,
+    apiStatus: apiStatusConstants.initial,
+    searchResult: {},
+  }
 
   componentDidMount() {
     this.getUserStoryData()
@@ -15,6 +31,7 @@ class Home extends Component {
   }
 
   getPostData = async () => {
+    this.setState({apiStatus: apiStatusConstants.progress})
     const jwtToken = Cookies.get('jwt_token')
     const apiUrl = 'https://apis.ccbp.in/insta-share/posts'
     const options = {
@@ -37,7 +54,12 @@ class Home extends Component {
         userId: eachItem.user_id,
         userName: eachItem.user_name,
       }))
-      this.setState({postsList: postData})
+      this.setState({
+        postsList: postData,
+        apiStatus: apiStatusConstants.success,
+      })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.fail})
     }
   }
 
@@ -69,6 +91,12 @@ class Home extends Component {
     }))
   }
 
+  renderLoaderView = () => (
+    <div className="loader-container">
+      <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
+    </div>
+  )
+
   renderPosts = () => {
     const {postsList, isLiked} = this.state
     return (
@@ -85,25 +113,55 @@ class Home extends Component {
     )
   }
 
-  renderNopostView = () => (
-    <>
-      <img
-        src="https://res.cloudinary.com/dzf4nrbvt/image/upload/v1676539801/alert-triangle_hkmcpf.png"
-        alt="page not found"
-        className="page not found"
-      />
-    </>
-  )
+  renderNopostView = () => {
+    const onRetry = () => {
+      this.setState({apiStatus: apiStatusConstants.progress}, this.renderPosts)
+    }
+    return (
+      <>
+        <img
+          src="https://res.cloudinary.com/dzf4nrbvt/image/upload/v1676539801/alert-triangle_hkmcpf.png"
+          alt="page not found"
+          className="page not found"
+        />
+        <p className="home-fail-text">Something went wrong. Please try again</p>
+        <button type="button" className="retry-btn" onClick={onRetry}>
+          Try again
+        </button>
+      </>
+    )
+  }
+
+  renderViewOnApiStatus = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.progress:
+        return this.renderLoaderView()
+      case apiStatusConstants.success:
+        return this.renderPosts()
+      case apiStatusConstants.fail:
+        return this.renderNopostView
+      default:
+        return null
+    }
+  }
 
   render() {
-    const {storyDataList, postsList} = this.state
-
+    const {storyDataList} = this.state
     return (
-      <div className="home-bg-container">
-        <Header />
-        <Slicker storyDataList={storyDataList} />
-        {postsList.length > 0 ? this.renderPosts() : this.renderNopostView()}
-      </div>
+      <SearchContext.Consumer>
+        {value => {
+          const {searchResult} = value
+          console.log(searchResult)
+          return (
+            <div className="home-bg-container">
+              <Header />
+              <Slicker storyDataList={storyDataList} />
+              {this.renderViewOnApiStatus()}
+            </div>
+          )
+        }}
+      </SearchContext.Consumer>
     )
   }
 }

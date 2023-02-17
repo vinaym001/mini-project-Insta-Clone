@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Slider from 'react-slick'
-
+import Loader from 'react-loader-spinner'
 import './index.css'
 
 const settings = {
@@ -33,6 +33,12 @@ const settings = {
     },
   ],
 }
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  progress: 'IN_PROGRESS',
+  success: 'SUCCESS',
+  fail: 'FAILURE',
+}
 
 class Slicker extends Component {
   renderSlider = () => {
@@ -52,10 +58,33 @@ class Slicker extends Component {
     )
   }
 
+  renderLoaderView = () => (
+    <div className="loader-container">
+      <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
+    </div>
+  )
+
+  //   renderViewOnApiStatus = () => {
+  //     const {apiStatus} = this.state
+  //     switch (apiStatus) {
+  //       case apiStatusConstants.progress:
+  //         return this.renderLoaderView()
+  //       case apiStatusConstants.success:
+  //         return this.renderSlider()
+  //       default:
+  //         return null
+  //     }
+  //   }
+
   render() {
+    const {storyDataList} = this.props
     return (
       <div className="main-container">
-        <div className="slick-container">{this.renderSlider()}</div>
+        <div className="slick-container">
+          {storyDataList.length > 0
+            ? this.renderSlider()
+            : this.renderLoaderView()}
+        </div>
       </div>
     )
   }

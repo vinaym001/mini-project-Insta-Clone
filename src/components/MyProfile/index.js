@@ -33,13 +33,6 @@ const MyProfile = props => {
         </div>
       </div>
       <hr />
-      <ul>
-        {posts.map(eachItem => (
-          <li key={eachItem.id}>
-            <img src={eachItem.image} alt="my posts" />
-          </li>
-        ))}
-      </ul>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import './index.css'
+import {Link} from 'react-router-dom'
 import {BsHeart} from 'react-icons/bs'
 import {FaRegComment} from 'react-icons/fa'
 import {MdShare} from 'react-icons/md'
@@ -16,21 +17,22 @@ const Posts = props => {
     createdAt,
     likesCount,
     postDetails,
-    postId,
     profilePic,
     userId,
     userName,
   } = postDetailsItems
   return (
-    <li className="post-li-container">
-      <div className="post-upper-container">
-        <img
-          src={profilePic}
-          alt="post author profile"
-          className="post-user-profile-img"
-        />
-        <p className="post-username">{userName}</p>
-      </div>
+    <li className="post-li-container" key={userId}>
+      <Link to={`/users/${userId}`}>
+        <div className="post-upper-container">
+          <img
+            src={profilePic}
+            alt="post author profile"
+            className="post-user-profile-img"
+          />
+          <p className="post-username">{userName}</p>
+        </div>
+      </Link>
       <div className="post-img">
         <img
           src={postDetails.image_url}

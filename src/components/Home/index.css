@@ -10,3 +10,24 @@
 
   background: #fafafa;
 }
+
+.home-fail-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+
+.retry-btn {
+  padding: 8px 24px;
+  gap: 8px;
+  width: 102px;
+  height: 32px;
+  background: #4094ef;
+  border-radius: 8px;
+  font-size: 12px;
+  border: none;
+  color: #ffffff;
+}

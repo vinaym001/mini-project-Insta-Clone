@@ -30,13 +30,20 @@
   border: 1px solid #dbdbdb;
   border-radius: 3px;
   margin-top: 10px;
-  border: none;
+  border: 1px solid black;
+}
+
+.search-btn {
+  background-color: transparent;
+  border:none;
+  cursor:pointer;
 }
 
 .header-search-input {
   width: 80%;
   height: 100%;
   margin-right: 10px;
+  border: none;
 }
 .home-link {
   position: absolute;
@@ -44,7 +51,7 @@
   height: 18px;
   left: 1027px;
   top: 23px;
-text-decoration:none;
+  text-decoration: none;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -63,7 +70,7 @@ text-decoration:none;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
-  text-decoration:none;
+  text-decoration: none;
 }
 .logout-button {
   position: absolute;
