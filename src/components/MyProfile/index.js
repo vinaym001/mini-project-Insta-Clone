@@ -33,11 +33,16 @@ const MyProfile = props => {
         </div>
       </div>
       <hr />
-      <ul>
-          {stories.map((eachStory)=>(
-            <li key={eachStory.id}>
-             <img src={eachStory.image} alt="profile story"/>
-               </li>))}
+      <ul className="pro-story-container">
+        {stories.map(eachItem => (
+          <li key={eachItem.id}>
+            <img
+              src={eachItem.image}
+              alt="profile story"
+              className="pro-story-img"
+            />
+          </li>
+        ))}
       </ul>
     </div>
   )
