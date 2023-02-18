@@ -66,7 +66,7 @@ const Posts = props => {
         )}
         <ul className="comment-container">
           {comments.map(eachItem => (
-            <li className="post-comments">
+            <li className="post-comments" key={eachItem.user_id}>
               <span className="span-element">{eachItem.user_name} </span>
               {eachItem.comment}
             </li>
